@@ -16,7 +16,7 @@ Please follow this [handy guide](https://packaging.python.org/guides/installing-
 
 tl;dr.
 
-See below to see the exmaples from the [handy guide](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) to create and activate virtual environment. I skipped the installation part because, hey, you ought to put in some effort to at least install, nay? :)
+See below to see the examples from the [handy guide](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) to create and activate virtual environment. I skipped the installation part because, hey, you ought to put in some effort to at least install, nay? :)
 
 Here is an example of creating virtual environment after installing virtualenv on mac:
 ```
