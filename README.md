@@ -23,7 +23,7 @@ Here is an example of creating virtual environment after installing virtualenv o
 python3 -m venv env
 ```
 
-On Winodws:
+On Windows:
 ```
 py -m venv env
 ```
