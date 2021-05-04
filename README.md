@@ -56,4 +56,4 @@ export set FLASK_APP=flaskapp
 ```
 
 ### run server
-After all those inital set ups are done, run ```flask run``` in terminal (for mac users). Now you are all set! Happy hacking :D
+After all those inital set ups are done, move into **```backend``` directory,** and then run ```flask run``` in terminal (for mac users). Now you are all set! Happy hacking :D
