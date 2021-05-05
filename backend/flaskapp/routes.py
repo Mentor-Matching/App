@@ -1,5 +1,10 @@
 from app import app
-from flask import render_template
+from flask import render_template, url_for, flash, redirect, request
+from flaskapp import app, db, bcrypt
+from flaskapp.forms import RegistrationForm, LoginForm
+from flaskapp.models import User, Profile, Review
+from flask_login import login_user, current_user, logout_user, login_required
+
 
 '''
 Page rendering
@@ -22,7 +27,7 @@ def reviews():
   return render_template('index.html')
 
 '''
-Landing page
+Landing page  
 '''
 
 
@@ -31,21 +36,57 @@ Landing page
 Sign up page
 '''
 
+@app.route("/api/profile/registration", methods=[ 'POST'])
+def registration():
+    if current_user.is_authenticated:
+        return 'Already Logged In' #redirect(url_for('home'))
+    form = RegistrationForm()
+    form.validate_username(form.username)
+    form.validate_email(form.email)
+    if form.validate_on_submit(): #need to change this to validate_on_submit...
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username = form.username.data, email = form.email.data, password = hashed_password)
+        db.session.add(user)
+        db.session.commit()
+
+        flash(f'Your Account has been created!', 'success')
+        return  'User Created: \n username: {} \n email: {}'.format(user.username, user.email)  # redirect(url_for('login'))
+    
+    return 'Either Username or Email already exists'
+    #return render_template('index.html', title='Registeration', form=form) # This needs to be updated
 
 
 '''
 Recommendation page
 '''
-
+@app.route('/api/reviews', methods=['GET']) #Kooha
+def api_reviews():
+  return render_template('index.html')
 
 
 '''
 Testing endpoint
 '''
 
+
 @app.route('/test', methods=['GET'])
 def test():
   return 'it works!'
+
+@app.route('/test2', methods=['POST'])
+def test2():
+  # return 'it works!'
+  form = RegistrationForm()
+  if form.submit():
+
+    
+    hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+    user = User(username = form.username.data, email = form.email.data, password = hashed_password)
+    db.session.add(user)
+    db.session.commit()
+    return user.username
+  
+  return 'No Return'
 
 '''
 Page Not Found
