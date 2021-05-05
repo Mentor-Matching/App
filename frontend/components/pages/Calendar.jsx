@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Layout from '../Layout';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -25,10 +26,10 @@ class Calendar extends React.Component {
     console.log(test)
 
     return (
-      <>
+      <Layout>
         <h1>Calendar page</h1>
         <p>{test}</p>
-      </>
+      </Layout>
     )
   }
 }
