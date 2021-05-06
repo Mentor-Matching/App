@@ -43,7 +43,14 @@ def create_connection(db_name, db_user, db_password, db_host, db_port):
 #     except OperationalError as e:
 #         print(f"The error '{e}' occurred")
 
-connection = create_connection(database, user, password, dbServer, port)
+# connection = create_connection(database, user, password, dbServer, port)
     
 # create_database_query = "CREATE DATABASE sm_app"
 # create_database(connection, create_database_query)
+
+sslmode = "require"
+
+# Construct connection string
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(dbServer, user, database, password, sslmode)
+conn = psycopg2.connect(conn_string) 
+print("Connection established")

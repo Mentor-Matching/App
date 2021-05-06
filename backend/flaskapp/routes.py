@@ -29,14 +29,36 @@ def reviews():
 '''
 Landing page  
 '''
+# Sample Data
+mentor = [
+    {
+        'name': '서달미',
+        'title': '삼산텍 CEO',
+        'job_content': '채용, 투자유치, IR등'
+    },
+    {
+        'name': '남도산',
+        'title': '삼산텍 CTO',
+        'job_content': '기술 및 개발 총괄 리드'
+    }
+]
+
+@app.route('/api/recommendations/sample', methods=['GET'])
+def landing():
+
+  return render_template('landing.html', mentor=mentor)
 
 
+
+# @app.route('/api/recommendations?user_id=12389752179', methods=['GET'])
+# def reviews():
+#   return render_template('index.html')
 
 '''
 Sign up page
 '''
 
-@app.route("/api/profile/registration", methods=[ 'POST'])
+@app.route("/api/profile/registration", methods=[ 'GET','POST'])
 def registration():
     if current_user.is_authenticated:
         return 'Already Logged In' #redirect(url_for('home'))
@@ -50,10 +72,9 @@ def registration():
         db.session.commit()
 
         flash(f'Your Account has been created!', 'success')
-        return  'User Created: \n username: {} \n email: {}'.format(user.username, user.email)  # redirect(url_for('login'))
+        return redirect(url_for('login'))
     
-    return 'Either Username or Email already exists'
-    #return render_template('index.html', title='Registeration', form=form) # This needs to be updated
+    return render_template('register.html', title='Register', form=form)
 
 
 '''
@@ -71,17 +92,17 @@ Login Page: Only For Development Purpose
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('test')) 
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
+            return redirect(url_for('landing')) 
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+    return  render_template('login.html', title='Login', form=form)
 
 @app.route("/logout")
 def logout():
