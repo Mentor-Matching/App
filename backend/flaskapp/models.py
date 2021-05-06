@@ -72,7 +72,7 @@ class Answer(db.Model):
     field = db.Column(db.String(20), nullable=False)
     major = db.Column(db.String(20), nullable=False)
     interest = db.Column(db.String(20), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
+    user_id = User.query.order_by(User.id.desc()).first()
     
     def __repr__(self):
         return f"Answer('{self.user_id}', '{self.field}','{self.major}','{self.interest}')"
