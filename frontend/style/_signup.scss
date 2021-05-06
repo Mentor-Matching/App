@@ -24,14 +24,19 @@
   display: flex;
   position: relative;
   justify-content: center;
+  padding-right: 50px;
 
   a {
     position: relative;
     text-decoration: none;
-    font-weight: bold;
-    font-family: Work Sans;
+    // font-weight: bold;
+    // font-family: Work Sans;
     color: black;
-    padding-right: 10px;
+    padding-right: 50px;
+
+    @media (max-width: 768px) {
+      padding-right: 20px;
+    }
   }
 }
 
@@ -51,19 +56,22 @@
   margin-top: 50px;
 
   label {
-
+    padding-left: 5px;
+    margin-bottom: 10px;
   }
   input {
     position: relative;
-    height: 30px;
+    height: 40px;
     border: none;
     margin-bottom: 20px;
     border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     background: #F4F4F8;
   }
 
   .submit {
-    height: 30px;
+    height: 40px;
     border: none;
     margin-top: 30px;
     border-radius: 20px;
@@ -74,8 +82,27 @@
     width: 100%;
   }
 
+  .submit-half {
+    width: 45%;
+  }
+
   .submit-color {
     background: #FAAD1A;
     color: white;
+    transition: ease 0.5s;
+    -webkit-transition: ease 0.5s;
+    -moz-transition: ease 0.5s;
+    -ms-transition: ease 0.5s;
+    -o-transition: ease 0.5s;
+
+    &:hover {
+      // background: #FAAD1A;
+      background: #FFBC1F;
+      transition: ease 0.5s;
+      -webkit-transition: ease 0.5s;
+      -moz-transition: ease 0.5s;
+      -ms-transition: ease 0.5s;
+      -o-transition: ease 0.5s;
+    }
   }
 }
