@@ -1,4 +1,5 @@
 
+from db_dev import dbServer, port, user, password, database
 
 # import pyodbc
 # from sqlalchemy import create_engine
@@ -12,26 +13,34 @@
 # print('connection is ok')
 # # print(engine_azure.table_names())
 
+import pyodbc
+conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=tcp:mentormatching-dev.database.windows.net,1433;Database=MentorMatching;Uid=mmDev;Pwd='+ password+ ';Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
+cursor = conn.cursor()
 
-import psycopg2
-from psycopg2 import OperationalError
-from db_dev import dbServer, port, user, password, database
+# cursor = conn.cursor()  
+# cursor.execute('SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;')  
+# row = cursor.fetchone()  
+# while row:  
+#     print str(row[0]) + " " + str(row[1]) + " " + str(row[2])     
+#     row = cursor.fetchone()
+
+# import psycopg
 
 
-def create_connection(db_name, db_user, db_password, db_host, db_port):
-    connection = None
-    try:
-        connection = psycopg2.connect(
-            database=db_name,
-            user=db_user,
-            password=db_password,
-            host=db_host,
-            port=db_port,
-        )
-        print("Connection to PostgreSQL DB successful")
-    except OperationalError as e:
-        print(f"The error '{e}' occurred")
-    return connection
+# def create_connection(db_name, db_user, db_password, db_host, db_port):
+#     connection = None
+#     try:
+#         connection = psycopg.connect(
+#             database=db_name,
+#             user=db_user,
+#             password=db_password,
+#             host=db_host,
+#             port=db_port,
+#         )
+#         print("Connection to PostgreSQL DB successful")
+#     except Exception as e:
+#         print(e)
+#     return connection
 
 
 # def create_database(connection, query):
