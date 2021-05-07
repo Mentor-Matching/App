@@ -176,9 +176,9 @@ class RegisterSchool extends React.Component {
               specialInterest: ''
             }}
             onSubmit={(values, actions) => {
-              alert("Under Development")
+              // alert("Under Development")
               // actions.setSubmitting(false)
-              // window.location.href = '/mentee/profile'
+              window.location.href = '/profile/mentee'
             }}
           >
             {formProps => (
