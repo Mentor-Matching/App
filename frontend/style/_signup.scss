@@ -70,39 +70,121 @@
     background: #F4F4F8;
   }
 
-  .submit {
-    height: 40px;
-    border: none;
-    margin-top: 30px;
-    border-radius: 20px;
+  .profile-image-input {
+    width: 60%;
+    max-width: 200px;
+    height: 80vw;
+    max-height: 230px;
+
+  }
+
+  .profile-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-image-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    max-width: 200px;
     cursor: pointer;
   }
 
-  .submit-full {
+  .profile-image-label-inner {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    height: 80vw;
+    max-height: 230px;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 20px;
+
+    background: #F4F4F8;
   }
 
-  .submit-half {
-    width: 45%;
+  .input-textfield {
+    height: 250px;
   }
+}
 
-  .submit-color {
-    background: #FAAD1A;
-    color: white;
+.submit {
+  height: 40px;
+  border: none;
+  margin-top: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.submit-full {
+  width: 100%;
+}
+
+.submit-half {
+  width: 45%;
+}
+
+.submit-color {
+  background: #FAAD1A;
+  color: white;
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  -moz-transition: ease 0.5s;
+  -ms-transition: ease 0.5s;
+  -o-transition: ease 0.5s;
+
+  &:hover {
+    // background: #FAAD1A;
+    background: #FFBC1F;
     transition: ease 0.5s;
     -webkit-transition: ease 0.5s;
     -moz-transition: ease 0.5s;
     -ms-transition: ease 0.5s;
     -o-transition: ease 0.5s;
-
-    &:hover {
-      // background: #FAAD1A;
-      background: #FFBC1F;
-      transition: ease 0.5s;
-      -webkit-transition: ease 0.5s;
-      -moz-transition: ease 0.5s;
-      -ms-transition: ease 0.5s;
-      -o-transition: ease 0.5s;
-    }
   }
+}
+
+.inactive {
+  display: none;
+}
+
+.custom-form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 450px;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.interest-entry-listing {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.interest-entry {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 8px 10px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.selected {
+  background: black;
+  color: white;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
