@@ -1,4 +1,3 @@
-from app import app
 import secrets
 import os
 from flask import render_template, url_for, flash, redirect, request
@@ -7,7 +6,6 @@ from flaskapp import app, db, bcrypt
 from flaskapp.forms import RegistrationForm, LoginForm, InfoForm
 from flaskapp.models import User, Profile, Review
 from flask_login import login_user, current_user, logout_user, login_required
-
 import pymysql
 
 
