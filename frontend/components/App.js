@@ -5,7 +5,7 @@ import PageNotFound from './pages/PageNotFound';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import RegisterSchool from './pages/RegisterSchool';
-import MyInterest from './pages/MenteeProfile';
+import MenteeProfile from './pages/MenteeProfile';
 import Calendar from './pages/Calendar';
 import Reviews from './pages/Reviews';
 // import { SignUpContext } from './SignUpContext'
