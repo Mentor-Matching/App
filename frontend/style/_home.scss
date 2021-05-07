@@ -26,8 +26,8 @@
 
       .banner-content-wrapper {
         position: relative;
-        width: 500px;
-        height: 230px;
+        width: 543px;
+        height: 275px;
         margin: auto;
 
         .banner-title {
@@ -43,18 +43,9 @@
         .banner-text {
           position: relative;
           top: 36%;
-          width: 80%;
+          width: 78%;
           margin: auto;
         }
-      }
-
-      .banner-small-rectangle {
-        position: absolute;
-        width: 2px;
-        height: 3px;
-        border: black;
-        border-style: solid;
-        border-width: 1px;
       }
 
       .banner-rectangle-1 {
@@ -72,8 +63,8 @@
         position: absolute;
         width: 528px;
         height: 240px;
-        left: 2%;
-        bottom: 4%;
+        left: 3%;
+        bottom: 6%;
         border: black;
         border-style: solid;
         border-width: 1px;
@@ -122,6 +113,13 @@
           background: #FAAD1A;
           padding: 0;
           margin-right: 8px;
+
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+              transform: scale(1.02, 1.02);
+          }
         }
       }
 
