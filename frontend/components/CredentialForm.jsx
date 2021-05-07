@@ -23,7 +23,7 @@ const CredentialForm = (props) => {
   })
   return (
     <div>
-      {/* <Formik
+      <Formik
         id="credential-form"
         initialValues={{
           username: '',
@@ -41,10 +41,10 @@ const CredentialForm = (props) => {
           // alert(JSON.stringify(values))
           // props.nextPage();
         // }}
-      > */}
+      >
         {/* {formProps => { */}
-        <SignUpContext.consumer>
-          <form className="form"
+        {/* <SignUpContext.consumer> */}
+          <Form className="form"
             onSubmit={formik.handleSubmit}
             >
             <label htmlFor="username">아이디</label>
@@ -72,11 +72,11 @@ const CredentialForm = (props) => {
               onClick={props.nextPage}>
                 가입하기
             </button>
-          </form>
-        </SignUpContext.consumer>
-          {/* </Form>
-        }} */}
-      {/* </Formik> */}
+          {/* </form> */}
+        {/* </SignUpContext.consumer> */}
+          </Form>
+        {/* }} */}
+      </Formik>
     </div>
   )
 }
