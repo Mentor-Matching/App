@@ -1,0 +1,49 @@
+.main-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  height: 1700px;
+
+  .inner-container {
+    width: 100%;
+    height: 40%;
+    background: red;
+    justify-content: space-between;
+    .banner-container {
+      width: 40%;
+      height: 100%;
+      display: flex;
+      background: green;
+
+      .banner-rectangle-1 {
+
+      }
+      .banner-rectangle-2 {
+
+      }
+    }
+  }
+
+  .searchbox-container {
+      width: 40%;
+      height: 100%;
+      display: flex;
+      background: orange;
+  }
+
+  .card-list-container {
+
+  }
+}
+
+
+.banner-content-wrapper {
+  .banner-title {
+
+  }
+  .banner-text {
+
+  }
+}
+
+
