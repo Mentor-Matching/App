@@ -12,9 +12,9 @@
     height: 50%;
     justify-content: space-between;
     align-items: center;
-    border: red;
-    border-style: dashed;
-    border-width: 1px;
+    // border: red;
+    // border-style: dashed;
+    // border-width: 1px;
 
     .banner-container {
       display: block;
@@ -113,6 +113,7 @@
           background: #FAAD1A;
           padding: 0;
           margin-right: 8px;
+          cursor: pointer;
 
           &:focus {
             outline: none;
