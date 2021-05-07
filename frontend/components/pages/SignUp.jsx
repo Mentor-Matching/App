@@ -1,30 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import Layout from '../Layout';
-import PopUp from '../PopUp';
-import CredentialForm from '../CredentialForm';
-import SchoolForm from '../SchoolForm';
-import InterestForm from '../InterestForm';
+import { Formik, Field, Form } from 'formik'
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currPage: 1,
       username: '',
       email: '',
       password: '',
       birthdate: '',
-      phone: '',
-      name: '',
-      school: '',
-      field: '',
-      academic: '',
-      interest: ''
+      phone: ''
     }
 
-    this.nextPage = this.nextPage.bind(this)
-    this.prevPage = this.prevPage.bind(this)
+    this.submitCredential = this.submitCredential.bind(this)
   }
 
   componentDidMount() {
@@ -38,52 +28,84 @@ class SignUp extends React.Component {
       })
   }
 
-  nextPage() {
-    this.setState(prevState => { currPage: prevState.currPage + 1 })
+  submitCredential(e) {
+    e.preventDefault();
+    console.log(e.target)
   }
 
-  prevPage() {
-    this.setState(prevState => { currPage: prevState.currPage - 1 })
-  }
-
-  submitCredential() {
-
-  }
-
-  submitSchool() {
-
-  }
-
-  submitInterest() {
+  validatePassword(value) {
 
   }
 
   render() {
-    let display, prevButton, nextButton;
-    // if (this.state.currPage === 1) {
-    //   display = <CredentialForm />
-    // } else if (this.state.currPage === 2) {
-    //   display = <SchoolForm />
-    // } else if (this.state.currPage === 3) {
-    //   display = <InterestForm/>
-    // }
 
     return (
       <Layout>
         {/* <PopUp> */}
-        {this.state.currPage === 1 ? <CredentialForm 
-                                        nextPage={this.nextPage}
-                                        prevPage={this.prevPage}
-                                      /> : ''}
-        {this.state.currPage === 2 ? <SchoolForm
-                                        nextPage={this.nextPage}
-                                        prevPage={this.prevPage}
-                                      /> : ''}
-        {this.state.currPage === 3 ? <InterestForm
-                                        nextPage={this.nextPage}
-                                        prevPage={this.prevPage}
-                                      /> : ''}
-        {/* </PopUp> */}
+        <div>
+          <Formik
+            id="credential-form"
+            initialValues={{
+              username: '',
+              email: '',
+              password: '',
+              confirmPassword: '',
+              birthdate: '',
+              phone: ''
+            }}
+            onSubmit={(values, actions) => {
+              // alert(JSON.stringify(values))
+              // console.log(JSON.stringify(values))
+              // axios.post('/api/profile/registration')
+              window.location.href = '/sign-up/basic-info'
+            }}
+            // onSubmit={(values, actions, props) => {
+              // if (values.password !== values.confirmPassword) {
+              //   return "비밀번호가 일치하지 않습니다. 다시 입력해주세요"
+              // }
+              // alert(JSON.stringify(values))
+              // props.nextPage();
+            // }}
+          >
+            {formProps => (
+              <Form className="form"
+                onSubmit={formProps.handleSubmit}
+                >
+                <label htmlFor="username">아이디</label>
+                <Field id="username" name="username" placeholder=""
+                  // onChange={formik.handleChange}
+                  // value={formik.values.username} />
+                  />
+                <label htmlFor="password">비밀번호</label>
+                <Field id="password" name="password" type="password" placeholder="" 
+                  // onChange={formik.handleChange}
+                  // value={formik.values.password} />
+                  />
+                <label htmlFor="confirmPassword">비밀번호 재확인</label>
+                <Field id="confirmPassword" name="confirmPassword" type="password" placeholder=""
+                  // onChange={formik.handleChange}
+                  // value={formik.values.confirmPassword} />
+                  />
+                <label htmlFor="birthdate">생년월일</label>
+                <Field id="birthdate" name="birthdate" type="date" placeholder="" 
+                  // onChange={formik.handleChange}
+                  // value={formik.values.birthdate} />
+                  />
+                <label htmlFor="phone">휴대전화</label>
+                <Field id="phone" name="phone" placeholder="111-1111-1111" 
+                  // onChange={formik.handleChange}
+                  // value={formik.values.phone}/>
+                  />
+                <button className="submit submit-full submit-color" 
+                  type="submit" 
+                  // onClick={props.nextPage}>
+                  >
+                    가입하기
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </Layout>
     )
   }
