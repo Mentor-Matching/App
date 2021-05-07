@@ -8,6 +8,7 @@ from flaskapp.forms import RegistrationForm, LoginForm, InfoForm
 from flaskapp.models import User, Profile, Review
 from flask_login import login_user, current_user, logout_user, login_required
 
+import pymysql
 
 
 
@@ -160,6 +161,21 @@ def logout():
 '''
 Testing endpoint
 '''
+
+@app.route('/dbTest', methods=['GET'])
+def dbTestConnection():
+  connection = pymysql.connect(host="mm-mariadb-dev.mariadb.database.azure.com",
+                              user="mmDev@mm-mariadb-dev",
+                              password="MentorMatching!",
+                              database="MentorMatching",
+                              cursorclass=pymysql.cursors.DictCursor)
+
+  result = None
+  with connection:
+      with connection.cursor() as cursor:
+          cursor.execute("SELECT VERSION()")
+          result = cursor.fetchone()
+  return result
 
 
 @app.route('/test', methods=['GET'])
