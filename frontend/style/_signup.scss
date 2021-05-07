@@ -180,8 +180,9 @@
 }
 
 .selected {
-  background: black;
+  background: $themeOrange;
   color: white;
+  border: none;
 }
 
 .button-wrapper {
