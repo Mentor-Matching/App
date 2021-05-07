@@ -1,8 +1,14 @@
-body {
-  // background-color: ghostwhite;
+.main-container {
+  max-width: 1800px;
+  width: 100%;
+  max-height: 1080px;
+  height: 100%;
+  margin: auto;
+  font-family: "Work Sans", sans-serif;
 }
 
-@import "font";
 @import "home";
+@import "font";
 @import "signup";
+@import "card";
 @import "profile";

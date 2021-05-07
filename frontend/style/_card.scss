@@ -1,0 +1,93 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 285px;
+    height: 382px;
+    border-radius: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: 0.4s;
+    background: #F4F4F8;
+    text-decoration: none;
+    font-family: "Work Sans", sans-serif;
+
+    .card-header {
+        display: flex;
+        width: 100%;
+        height: 25%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #FAAD1A;
+        text-decoration: none;
+        margin: 0;
+        border: 0;
+        font-size: 18px;
+    }
+
+    .card-image-container {
+        position: relative;
+        width: 100%;
+        height: 65%;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        .fav-icon {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            left: 82%;
+        }
+
+        .card-frame-circle {
+            top: 5%;
+            width: 170px;
+            height: 170px;
+            overflow: hidden;
+            margin: auto;
+            border-radius: 99999px;
+            background: #F4F4F8;
+
+            .card-image {
+                position: relative;
+                left: -47%;
+                height: 115%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .card-description {
+        height: 32%;
+        width: 100%;
+        text-align: center;
+        background: #FAAD1A;
+        color: white;
+        border-radius: 0px 0px 15px 15px;
+        display: inline-block;
+
+        .mentor-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .mentor-position {
+            font-size: 18px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .mentor-interests {
+            font-weight: lighter;
+            font-size: 24px;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.02, 1.02);
+    }
+}
