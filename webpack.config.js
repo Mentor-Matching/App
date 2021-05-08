@@ -35,7 +35,7 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   output: {
-    filename: 'dev.[name].bundle.js',
+    filename: 'prod.[name].bundle.js',
     path: path.resolve(__dirname, 'backend/flaskapp/static'),
     publicPath: ''
   },
