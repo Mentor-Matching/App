@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from '../static/MM.png'
+// import logo from '../static/MM.png'
 
 const Header = () => (
   <>
     <div className="header-wrapper">
       <div className="logo-wrapper">
         <a href="/">
-          <img className="mm-logo" src={logo} />
+          <img className="mm-logo" src="https://lh3.google.com/u/0/d/1xBt1GdJNYN4a2RwNNBIFPyy89wDNzLDb=w1267-h944-iv1" />
         </a>
       </div>
       <div className="menu-wrapper">
