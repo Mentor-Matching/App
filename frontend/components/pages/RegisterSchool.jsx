@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Layout from '../Layout';
 import { Formik, Field, Form } from 'formik';
-import submissionIcon from '../../static/add-photo.png';
+// import submissionIcon from '../../static/add-photo.png';
 import InterestList from '../InterestList';
 
 class RegisterSchool extends React.Component {
@@ -108,7 +108,7 @@ class RegisterSchool extends React.Component {
                     프로필
                     <div className="profile-image-label-inner">
                       <div className="orange-ellipse">
-                        <img className="image-icon" src={submissionIcon} />
+                        <img className="image-icon" src="https://lh3.google.com/u/0/d/1ANR5vJtRQfFfhdl7gVgs_cyimYUynS3O=w873-h944-iv1" />
                       </div>
                     </div>
                   </label>
@@ -186,9 +186,9 @@ class RegisterSchool extends React.Component {
                 onSubmit={formProps.handleSubmit}
                 >
                 <label htmlFor="project">요즘 하고 있는 프로젝트가 있나요?</label>
-                <Field id="project" name="project" placeholder="" className="input-textfield" type="text" />
+                <textarea id="project" name="project" placeholder="" className="input-textfield" type="text" />
                 <label htmlFor="special-interest">나만의 덕질! 무언가를 깊이 파 본 경험이 있나요?</label>
-                <Field id="special-interest" name="special-interest" placeholder="" className="input-textfield" type="text" />
+                <textarea id="special-interest" name="special-interest" placeholder="" className="input-textfield" type="text" />
                 <div className="button-wrapper">
                   <button className="submit submit-half submit-color" onClick={this.prevPage}>이전 페이지</button>
                   <button className="submit submit-half submit-color" type="submit">다음 페이지</button>
