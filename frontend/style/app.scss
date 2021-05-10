@@ -7,8 +7,14 @@
   font-family: "Work Sans", sans-serif;
 }
 
-@import "home";
+.full-width {
+  width: 100%;
+}
+
+@import "color";
 @import "font";
+@import "home";
 @import "signup";
 @import "card";
+@import "listing";
 @import "profile";
