@@ -36,7 +36,7 @@ module.exports = {
   },
   output: {
     filename: 'prod.[name].bundle.js',
-    path: path.resolve(__dirname, 'backend/flaskapp/static'),
+    path: path.resolve(__dirname, 'backend/public'),
     publicPath: ''
   },
   mode: 'development',
